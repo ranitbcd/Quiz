@@ -1,0 +1,34 @@
+<!-- SAVE DATA IN PURCHASE TMp -->
+   <script>
+		$(document).ready(function(){
+ 		$("#submit1").click(function(){
+			var stock_no=$("#stock_no").val();
+			var iname=$("#iname").val();
+			var carat=$("#carat").val();
+			var pcs=$("#pcs").val();
+			var gross_wt=$("#gross_wt").val();
+			var net_wt=$("#net_wt").val();
+			var loss_per=$("#loss_per").val();
+			var loss_wt=$("#loss_wt").val();
+			var making_charge=$("#making_charge").val();
+			var stone_value=$("#stone_value").val();
+			var mrp=$("#mrp").val();
+			var total_amount=$("#total_amount").val();
+			if(iname.length!=0)
+			{
+		
+				$.ajax({
+				type:"get",
+				dataType:"json",
+				url:"save_purchase_tmp.php",
+				data:{stock_no:stock_no,iname:iname,carat:carat,pcs:pcs,gross_wt:gross_wt,net_wt:net_wt,loss_per:loss_per,loss_wt:loss_wt,making_charge:making_charge,stone_value:stone_value,mrp:mrp,total_amount:total_amount},
+				success:function(data)
+				{
+					location.reload(true);
+				}
+				});
+			}
+			
+		});
+		});
+	</script>	
